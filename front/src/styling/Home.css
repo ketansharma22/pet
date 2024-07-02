@@ -1,0 +1,16 @@
+.go{
+    text-decoration: none;
+    color: honeydew;
+    background-color: rgba(43, 246, 43, 0.342);
+    border-radius: 20px;
+    padding: 20px;
+}
+#home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
