@@ -1,0 +1,22 @@
+.form{
+    background-color: #242424;
+    
+}
+
+#login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(229, 220, 203, 0.555)    ;
+}
+
+
+#outlined-basic{
+    max-width: 200px;
+    color: antiquewhite;
+}
+#loginbutton{
+    background-color:rgba(229, 220, 203, 0.662) ;
+}
