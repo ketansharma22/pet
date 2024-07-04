@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14",
     "react-hot-toast": "^2.4.1",
     "two-step-auth": "^1.1.2"
   }
