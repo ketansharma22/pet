@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Shutter from "../additionals/Shutter";
 import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
+import {useDispatch} from 'react-redux'
 import "../styling/Signup.css";
 import { Link } from "react-router-dom";
+import { register } from "../../features/auth/authSlice";
 const Signup = () => {
+  const dispatch=useDispatch()
   const[name,setName]=useState("")
   const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
@@ -20,7 +23,9 @@ const Signup = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     console.log(data);
+    dispatch(register(data))
     setData({name:"",email:"",password:""})
+    
   }
 
   return (
