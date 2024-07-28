@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const registering = async (userData,thunkAPI) => {
   try {
     const res = await axios.post("/users/signup", { userData });
