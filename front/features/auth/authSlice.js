@@ -9,8 +9,8 @@ async(userData,thunkAPI)=>{
         console.log(userData);
         console.log("slice");
         const res = await axios.post("/users/signup", userData);
-        console.log(res.data);
-        return res.data;
+        const data=await res.data
+        return data
       } catch (error) {
         console.log("erro");
         console.log(error); 
