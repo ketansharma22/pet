@@ -1,4 +1,9 @@
+import userModel from "../models/userModel.js";
 export const getAllUsers=async(req,res,next)=>{
-    console.log("get ka controller");
-    res.json({message:"get ka controller"})
+    try {
+        const users = await userModel.find();
+        return res.json({ message: "helo", users });
+      } catch (error) {
+        console.log(error);
+      }
 }

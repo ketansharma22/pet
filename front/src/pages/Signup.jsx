@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import "../styling/Signup.css";
 import { Link } from "react-router-dom";
 import { register } from "../../features/auth/authSlice";
+import toast from "react-hot-toast";
 const Signup = () => {
   const dispatch=useDispatch()
   const[name,setName]=useState("")
@@ -24,7 +25,9 @@ const Signup = () => {
     e.preventDefault()
     console.log(data);
     try {
+      toast.loading("Signing in",{id:"signup"})
       dispatch(register(data))
+      toast.success("Signed in",{id:"signup"})
     setData({name:"",email:"",password:""})
       
     } catch (error) {
