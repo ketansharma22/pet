@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Shutter from "../additionals/Shutter";
 import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import "../styling/Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../features/auth/authSlice";
 import toast from "react-hot-toast";
 const Signup = () => {
+  const navigate=useNavigate()
   const dispatch=useDispatch()
   const[name,setName]=useState("")
   const[email,setEmail]=useState("")
@@ -26,13 +27,21 @@ const Signup = () => {
     console.log(data);
     try {
       toast.loading("Signing in",{id:"signup"})
-      dispatch(register(data))
-      toast.success("Signed in",{id:"signup"})
-    setData({name:"",email:"",password:""})
+      const res= await dispatch(register(data))
+      if(res.payload.status=="success"){
+        toast.success("signed in",{id:"signup"})
+        navigate('/feed')
+        
+      }else{
+        toast.error(res.payload.message, { id: "signup" });
+      }
+      setData({name:"",email:"",password:""})
+      console.log("done");
+      
       
     } catch (error) {
       console.log(error);
-      toast.error(error,{id:"signup"})
+      toast.error(error.message,{id:"signup"})
     }
     
     

@@ -1,6 +1,7 @@
 import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import { registering } from "./services";
 import axios from "axios";
+import toast from "react-hot-toast";
 const user=JSON.parse(localStorage.getItem('user'))
 
 export const register=createAsyncThunk('auth/register',
@@ -12,9 +13,7 @@ async(userData,thunkAPI)=>{
         const data=await res.data
         return data
       } catch (error) {
-        console.log("erro");
-        console.log(error); 
-        return thunkAPI.rejectWithValue(error)
+        return thunkAPI.rejectWithValue(error.response.data)
       }
 }
 )
