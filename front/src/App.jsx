@@ -16,7 +16,7 @@ console.log(isSignedIn)
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
         {
-          !isSignedIn && (<Route path='/feed' element={<Feed/>} />)
+          isSignedIn && (<Route path='/feed' element={<Feed/>} />)
         }
 
     </Routes>
